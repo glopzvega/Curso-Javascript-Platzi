@@ -1,0 +1,18 @@
+{
+  "name": "platzigram",
+  "version": "0.1.0",
+  "description": "Aplicacion Tipo Instagram hecha en Javascript",
+  "main": "server.js",
+  "keywords": [
+    "platzi",
+    "javascript",
+    "curso",
+    "definitivo",
+    "platzigram"
+  ],
+  "author": "glopzvega",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.15.2"
+  }
+}
