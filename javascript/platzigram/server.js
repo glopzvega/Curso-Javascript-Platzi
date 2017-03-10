@@ -1,4 +1,16 @@
+// npm init "para generar el package.json"
+// 
+// npm install --save express "Descarga e Incluye esta 
+// libreria en nuestro proyecto"
+//
+// node server.js "Ejecutar Archivo JS con node"
+// 
+// Express - Generar Servidores Web 
 // Framework de lado del servidor rutas, etc...
+// 
+// Gestores de paquetes, son repositorios de 
+// librerias o modulos que se pueden descargar 
+// para utilizarlos dentro de tu aplicacion
 var express = require("express");
 
 var app = express();
