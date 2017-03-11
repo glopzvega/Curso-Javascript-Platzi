@@ -13,6 +13,13 @@
   "author": "glopzvega",
   "license": "MIT",
   "dependencies": {
-    "express": "~4.15.2"
+    "express": "~4.15.2",
+    "pug": "~2.0.0-beta11",
+    "materialize": "~1.0.0",
+    "gulp-rename": "~1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-sass": "~3.1.0"
   }
 }

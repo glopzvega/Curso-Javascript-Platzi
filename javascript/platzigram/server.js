@@ -15,9 +15,17 @@ var express = require("express");
 
 var app = express();
 
+app.use(express.static("public"))
+
+// Indica a la aplicacion Node que utilizara un motor de vistas en este caso "pug"
+app.set("view engine", "pug");
+
 // Definiendo una ruta
 app.get("/", function(req, res){
-	res.send("Hola Mundo");
+	// Sin Jade / Pug
+	// res.send("Hola Mundo");
+	// Con Jade / Pug
+	res.render("index")
 });
 
 app.listen(3000, function(err){
