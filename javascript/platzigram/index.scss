@@ -1,7 +1,12 @@
+// Cuando utilizas SASS y Materialize-css puedes hacer uso de algunas variables que te permiten
+// cambiar los colores de tu aplicacion facilmente
 $secondary-color: #125688;
 
+// Con SASS podemos incluir otro archivo CSS de modo que cuando se procese se genere 1 solo archivo
 @import "node_modules/materialize-css/sass/materialize.scss";
 
+// CSS normal ¿Como para que...? Esperemos que lo expliquen mas adelante o si se requiere hacer otra cosa 
+// O se puede escribir de otra forma.
 body {
   background: #fafafa;
   color: #125688;

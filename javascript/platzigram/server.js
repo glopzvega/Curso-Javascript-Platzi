@@ -15,6 +15,8 @@ var express = require("express");
 
 var app = express();
 
+// Permite incluir los archivos estaticos sin escribir la ruta completa, 
+// Por default los busca en la carpeta publica
 app.use(express.static("public"))
 
 // Indica a la aplicacion Node que utilizara un motor de vistas en este caso "pug"
@@ -25,6 +27,7 @@ app.get("/", function(req, res){
 	// Sin Jade / Pug
 	// res.send("Hola Mundo");
 	// Con Jade / Pug
+	// El archivo index.pug debe estar en el directorio llamado 'views'
 	res.render("index")
 });
 
