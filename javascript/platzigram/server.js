@@ -23,7 +23,7 @@ app.use(express.static("public"))
 app.set("view engine", "pug");
 
 // Definiendo una ruta
-app.get("/", function(req, res){
+app.get(["/", "/signin", "/signup"], function(req, res){
 	// Sin Jade / Pug
 	// res.send("Hola Mundo");
 	// Con Jade / Pug
