@@ -2,7 +2,7 @@
 // npm i --save page
 // Se deben definir las rutas en el server hacia este archivo.
 // app.get(["/", "/signin", "/signup"], function(req, res){ ...
-// 
+ 
 var page = require('page');
 
 var main = document.getElementById("main-container");
