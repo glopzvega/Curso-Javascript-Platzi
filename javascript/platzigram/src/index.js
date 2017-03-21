@@ -4,6 +4,7 @@
 // app.get(["/", "/signin", "/signup"], function(req, res){ ...
  
 var page = require('page');
+var yo = require('yo-yo');
 
 var main = document.getElementById("main-container");
 
@@ -12,8 +13,11 @@ page("/", function(ctx, f){
 })
 
 page("/signup", function(ctx, f){
-	main.innerHTML = "signup";
+	var main = document.getElementById("main-container");
+
+	
 })
 
 page();
+// tambien se puede ejecutar con:
 // page.start();
