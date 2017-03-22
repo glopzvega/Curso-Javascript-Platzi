@@ -1,3 +1,4 @@
+// Modularizando el proyecto, cada elemento se crea en una carpeta diferente dentro del src
 var page = require("page");
 var yo = require('yo-yo');
 var empty = require('empty-element');
