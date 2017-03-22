@@ -1,21 +1,63 @@
 //Plugin para agregar navegacion a nuestra app
 // npm i --save page
 // Se deben definir las rutas en el server hacia este archivo.
-// app.get(["/", "/signin", "/signup"], function(req, res){ ...
- 
+// app.get(["/", "/signin", "/signup"], function(req, res){ ... 
 var page = require('page');
+// Esta libreria me permite generar componentes o interfaces 
+//devolviendo ademas un elemento del DOM
 var yo = require('yo-yo');
+// Se incluye la libreria para poder vaiar un elemento antes de llenarlo 
+// con otros elementos
+var empty = require('empty-element');
 
 var main = document.getElementById("main-container");
 
 page("/", function(ctx, f){
-	main.innerHTML = "Home";
-})
+	main.innerHTML = "<a href='/signup'>Signup</a>";
+});
 
 page("/signup", function(ctx, f){
-	var main = document.getElementById("main-container");
-
 	
+	var el = yo`<div class="container">
+      <div class="row">
+        <div class="col s10 push-s1">
+          <div class="row">
+            <div class="col m5 hide-on-small-only">
+              <img class="iphone" src="iphone.png" />
+            </div>
+            <div class="col s12 m7">
+              <div class="row">
+                <div class="signup-box">
+                  <h1 class="platzigram">Platzigram</h1>
+                  <form class="signup-form">
+                    <h2>Regístrate para ver fotos de tus amigos estudiando en Platzi</h2>
+                    <div class="section">
+                      <a class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
+                      <a class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="section">
+                      <input type="email" name="email" placeholder="Correo electrónico"/>
+                      <input type="text" name="name" placeholder="Nombre completo"/>
+                      <input type="text" name="username" placeholder="Nombre de usuario"/>
+                      <input type="password" name="password" placeholder="Contraseña"/>
+                      <button class="btn waves-effect waves-light btn-signup" type="submit">Regístrate</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="login-box">
+                  ¿Tienes una cuenta? <a href="/signin">Entrar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    // Vaciamos el elemento con empty y despues agregamos el nuevo elemento.
+	empty(main).appendChild(el);
 })
 
 page();
