@@ -12,6 +12,7 @@ var yo = require('yo-yo');
 
 require('./homepage');
 require('./signup');
+require('./signin');
 
 // page("/", function(ctx, f){
 // 	main.innerHTML = "<a href='/signup'>Signup</a>";
