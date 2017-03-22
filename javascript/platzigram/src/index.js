@@ -8,13 +8,14 @@ var page = require('page');
 var yo = require('yo-yo');
 // Se incluye la libreria para poder vaiar un elemento antes de llenarlo 
 // con otros elementos
-var empty = require('empty-element');
+// var empty = require('empty-element');
 
-var main = document.getElementById("main-container");
+require('./homepage');
+require('./signup');
 
-page("/", function(ctx, f){
-	main.innerHTML = "<a href='/signup'>Signup</a>";
-});
+// page("/", function(ctx, f){
+// 	main.innerHTML = "<a href='/signup'>Signup</a>";
+// });
 
 // Movemos el contenido de esta pagina(ruta) al modulo /src/signup/
 // page("/signup", function(ctx, f){
