@@ -2,12 +2,13 @@
 // Se deben incluir las librerias necesarias para utilizarlo.
 var page = require("page");
 var empty = require('empty-element');
-
+var title = require('title');
 // ya que tenemos nuestro template lo podemos requerir en nuestra logica de rutas
 // no es necesario indicar la extension js.
 var template = require("./template");
 
-page("/signup", function(ctx, f){  
+page("/signup", function(ctx, f){
+  title('Platzigram - Signup');  
   var main = document.getElementById("main-container");
   empty(main).appendChild(template);	
 });
