@@ -20,7 +20,7 @@
     "npm": "^4.4.1",
     "page": "^1.7.1",
     "pug": "~2.0.0-beta11",
-    "title": "^1.0.0",
+    "title": "~1.0.0",
     "yo-yo": "^1.4.0"
   },
   "devDependencies": {
