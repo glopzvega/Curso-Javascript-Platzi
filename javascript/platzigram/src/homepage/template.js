@@ -5,16 +5,31 @@ var yo = require('yo-yo');
 // la cual es una variable disponible en javascript la cual nos devuelve un elemento.
 // del DOM.
 var layout = require("../layout");
+var picture = require("../picture");
 
-var content = yo`<div class="container">
-  <div class="row">
-    <div class="col s12 m10 offset-m1 l6 offset-l3">
-      content
-    </div>
-  </div>
-</div>`;
+module.exports = function(pictures){
+	var el = yo`<div class="container timeline">
+	  <div class="row">
+	    <div class="col s12 m10 offset-m1 l6 offset-l3">	      
+	      ${pictures.map(function(pic){
+			return picture(pic);
+	      })}
+	    </div>
+	  </div>
+	</div>`
+
+	return layout(el);
+}
+
+// var content = yo`<div class="container timeline">
+//   <div class="row">
+//     <div class="col s12 m10 offset-m1 l6 offset-l3">
+//       ${picture}
+//     </div>
+//   </div>
+// </div>`;
 
 // El template debe devolver una vista la cual logramos construir al incluir 
 // landing como funcion y llamarla dentro de nuestra vista pero mandando el 
 // box que la va a complementar. (Formulario);
-module.exports = layout(content);
+// module.exports = layout(content);

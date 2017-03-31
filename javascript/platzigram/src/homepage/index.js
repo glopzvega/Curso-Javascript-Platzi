@@ -9,8 +9,31 @@ var empty = require('empty-element');
 var template = require("./template");
 var title = require('title');
 
+var pictures = [
+	{
+		user : 
+		{
+			username : "glopzvega",
+			avatar : "https://pbs.twimg.com/profile_images/512313121340264448/nTTArrmo_400x400.jpeg"
+		},
+		url : 'office.jpg',
+		likes : 547,
+		liked : true
+	},
+	{
+		user : 
+		{
+			username : "glopzvega",
+			avatar : "https://pbs.twimg.com/profile_images/512313121340264448/nTTArrmo_400x400.jpeg"
+		},
+		url : 'office.jpg',
+		likes : 758,
+		liked : true
+	}
+]
+
 page("/", function(ctx, f){  
   title('Platzigram');
   var main = document.getElementById("main-container");
-  empty(main).appendChild(template);	
+  empty(main).appendChild(template(pictures));	
 });
