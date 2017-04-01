@@ -117,8 +117,26 @@ $avatar-size : 48px;
 }
 
 .card .fa-heart-o
+{  
+    color: $secondary-color;    
+}
+
+.card .fa-heart
 {
-  color: $secondary-color;
+  color: red;
+  display: none;
+}  
+
+.card.liked 
+{
+  .fa-heart-o
+  {    
+    display: none;
+  }
+  .fa-heart
+  {   
+    display: block;
+  }  
 }
 
 .card-content .card-title 

@@ -18,7 +18,7 @@ var pictures = [
 		},
 		url : 'office.jpg',
 		likes : 547,
-		liked : true
+		liked : false
 	},
 	{
 		user : 
