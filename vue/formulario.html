@@ -11,6 +11,22 @@
 			Tu nombre en mayuscula es: {{ nombre | uppercase }}
 		</p>
 
+		<form @submit.prevent="submit" action="" method="GET">
+			
+			<h2>¿Cuales son tus cursos favoritos?</h2>
+			
+			<input type="checkbox" id="vue" value="vue" name="curso">
+			<label for="vue">Curso de Vue.js</label>
+
+			<input type="checkbox" id="seo" value="seo" name="curso">
+			<label for="seo">Curso de SEO</label>
+
+			<input type="checkbox" id="react" value="react" name="curso">
+			<label for="react">Curso de React</label>
+			
+			<button type="submit"> Guardar </button>
+		</form>
+
 	</div>
 
 	<script src="https://unpkg.com/vue"></script>
@@ -19,6 +35,11 @@
 			el : "#app",
 			data : {
 				nombre : ""
+			},
+			methods : {
+				submit: function(){
+					console.log("SUBMIT")
+				}
 			},
 			filters : {
 				uppercase : function(str){
