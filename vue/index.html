@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<template v-if="show">			
+			<h1> {{ titulo | capitalize }}</h1>
+			<h2 v-show="visible">{{ subtitulo | lowercase }}</h2>
+		</template>
+
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : "#app",
+			data : {
+				show : true,
+				visible : false,
+				titulo : "Platzi",
+				subtitulo : "Curso de Vue.js"
+			},
+			filters : {
+				uppercase : function(str){
+					return str.toUpperCase();
+				},
+				lowercase : function(str){
+					return str.toLowerCase();
+				},
+				capitalize : function(str){
+					return str.charAt(0).toUpperCase() + str.slice(1);
+				}
+			}	
+		})
+	</script>
+</body>
+</html>
