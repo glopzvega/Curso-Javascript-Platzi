@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		
+		<form @submit.prevent="submit" action="" method="GET">
+			
+			<h2>¿Cuales son tus cursos favoritos?</h2>
+			
+			<template v-for="elem in cursos">
+				
+				<curso-item :curso="elem" @checked="selectCurso"></curso-item>
+				<!-- <input type="checkbox" :id="curso.id" :value="curso.value" name="cursos" v-model="cursosSeleccionados">
+				<label :for="curso.id">{{ curso.nombre }}</label> -->
+
+			</template>			
+			
+			<button type="submit"> Guardar </button>
+		</form>
+
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		// Los componentes no deben de modificar las propiedades del padre,
+		// si no que debe lanzar un evento para que el padre realice la modificacion
+		Vue.component('curso-item', {
+			props : [ 'curso'],
+			methods : {
+				onchange : function(e){
+					this.$emit('checked', this.curso.value, e.target.checked)
+				}
+			},
+			template : `
+				<div>
+					<input type="checkbox" :id="curso.id" :value="curso.value" name="cursos" @change="onchange">
+					<label :for="curso.id">{{ curso.nombre }}</label>
+				</div>
+			`
+		})
+
+		var app = new Vue({
+			el : "#app",
+			data : {
+				nombre : "",
+				cursos : [
+					{
+						id : "vue",
+						nombre : "Curso de Vue.js",
+						value : "vue"
+					},
+					{
+						id : "seo",
+						value : "seo",
+						nombre : "Curso SEO",
+					},
+					{
+						id : "react",
+						value : "react",
+						nombre : "Curso de React",
+					},
+				],
+				cursosSeleccionados : [],
+			},
+			methods : {
+				submit: function(){
+					console.log("SUBMIT")
+					console.log(this.cursosSeleccionados)
+				},
+				selectCurso : function(value, checked){
+					if(checked)
+					{
+						this.cursosSeleccionados.push(value);
+					}
+					else
+					{
+						let index = this.cursosSeleccionados.indexOf(value);
+						this.cursosSeleccionados.splice(index, 1);
+					}
+				}
+			},
+			filters : {
+				uppercase : function(str){
+					return str.toUpperCase();
+				},
+				lowercase : function(str){
+					return str.toLowerCase();
+				},
+				capitalize : function(str){
+					return str.charAt(0).toUpperCase() + str.slice(1);
+				}
+			}	
+		})
+	</script>
+</body>
+</html>
