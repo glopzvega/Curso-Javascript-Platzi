@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    img(src='https://glopzvega.github.io/Curso-Javascript-Platzi/vue/platzimusic/assets/logo.png')
+    img(src='https://glopzvega.github.io/Curso-Javascript-Platzi/vue/platzimusic/dist/logo.png')
     h1 {{ titulo }}
     h2 {{ subtitulo }}
     select(v-model="selectedCountry")
