@@ -1,7 +1,11 @@
 <template lang="pug">
   #app
     img(src='./assets/logo.png')
-    h1 PlatziMusic
+    h1 {{ titulo }}
+    h2 {{ subtitulo }}
+    select(v-model="selectedCountry")
+      option(v-for="pais in paises", v-bind:pais="pais", v-bind:value="pais.value") {{ pais.name }}
+    spinner(v-show="loading")
     ul
       artist(v-for="artist in artists" v-bind:artist="artist")
       //- li(v-for="artist in artists") {{ artist.name }}
@@ -11,6 +15,7 @@
 <script>
 
 import Artist from "./components/Artist.vue"
+import Spinner from "./components/Spinner.vue"
 import getArtist from "./api"
 
 export default {
@@ -18,20 +23,53 @@ export default {
   
   data () {
     return {
-      artists : []
+      titulo : "Platzimusic",
+      subtitulo : "Consumo de API LastFM con Vue.JS",
+      artists : [],
+      selectedCountry : "mexico",
+      loading : true,
+      paises : [
+        {
+          value : "mexico",
+          name : "México"
+        },
+        {
+          value : "spain",
+          name : "España"
+        },
+        {
+          value : "colombia",
+          name : "Colombia"
+        }
+      ]
+    }
+  },
+
+  watch : { // Observar un modelo / elemento en particular cuando haya un cambio
+    "selectedCountry" : function(){
+      this.refreshArtist();
+    }
+  },
+
+  methods : {
+    "refreshArtist" : function(){
+      const self = this;
+      self.loading = true;
+      getArtist(self.selectedCountry)
+        .then(function(artists){
+          self.artists = artists
+          self.loading = false
+        })
     }
   },
 
   components : {
-    Artist : Artist
+    Artist,
+    Spinner 
   },
 
   mounted : function(){
-    const self = this;
-    getArtist()
-      .then(function(artists){
-        self.artists = artists
-      })
+    this.refreshArtist()
   }
 }
 </script>
